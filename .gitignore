@@ -1,0 +1,4 @@
+config/
+lib/
+node_modules/
+package.json
