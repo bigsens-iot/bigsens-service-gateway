@@ -1,4 +1,7 @@
 config/
-lib/
+lib/APIgateway/
+lib/deploy/
+lib/runtime/
+lib/protoify/
 node_modules/
 package.json

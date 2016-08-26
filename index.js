@@ -13,11 +13,7 @@ var proc = require('child_process'),
 	os = require('os'),
 	fs = require('fs'),
 	log4js = require('log4js'),
-	aguid = require('aguid'),
-	RuntimeManager = require('./lib/runtime/RuntimeManager.js'),
-	Route = require('./lib/runtime/docker/Route.js'),
-	ServiceGateway = require('./lib/cgs/ServiceGateway.js'),
-	RemoteService = require('./lib/cgs/RemoteService.js');
+	aguid = require('aguid');
 
 log4js.configure({
 	appenders : [{
@@ -33,8 +29,13 @@ log4js.configure({
 
 // make it global
 global.log4js = log4js;
-global.RuntimeManager = RuntimeManager;
-global.Route = Route;
+//global.RuntimeManager = RuntimeManager;
+//global.Route = Route;
+
+var //RuntimeManager = require('./lib/runtime/RuntimeManager.js'),
+	//Route = require('./lib/runtime/docker/Route.js'),
+	ServiceGateway = require('./lib/cgs/ServiceGateway.js'),
+	RemoteServer = require('./lib/cgs/RemoteServer.js');
 
 var log = log4js.getLogger('BS_Core');
 
@@ -46,12 +47,12 @@ var main = function() {
 		serviceGateway.on('onReady', function(gw) {
 			console.log('Service gateway ready');
 			// Initialize service gateway on port 8080
-			var remote = new RemoteService({
-				address : 'localhost', // in production point to http://api.bigsens.com
+			var remote = new RemoteServer({
+				address : 'localhost', // in production point to the http://api.bigsens.com
 				port : 8080
 			});
 			remote.on('onReady', function() {
-				console.log('Remote service connected');
+				console.log('Connected to remote server');
 				serviceGateway.attachProxy(remote);
 			});
 			remote.start();
