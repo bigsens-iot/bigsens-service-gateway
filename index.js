@@ -1,11 +1,26 @@
 /*
  * Copyright (c) 2016, Bigsens, LLC
- * Core Gateway Service (CGS) - common management operations with connected services
- * and API Gateway. Included subsystems:
- * @ Runtime - implementation with Container Runtime, look at the RunC
- * @ Deploy - '$ git push' deploy to SBC
- * @ Service - microservice management based on Runtime subsystem
- * @ API Gateway - WebSocket, REST
+ * 
+ * Core Service Gateway (CSG)
+ * 
+ * The main idea is to build edge computing platform based on compute instances,
+ * microservices and application framework. Platform includes several abstraction layers.
+ * It's important to know what all the layers are located in the edge machine,
+ * eg. Raspberry Pi, BeagleBone and others single board computers with the hub function.
+ * Communication between edge machines builds/run on the top of that platform.
+ *
+ * Basic layers are:
+ *   1. Infrastructure layer, instances management, deploy/update, health check, etc.
+ *   2. Microservices layer, endpoints, message API on the TCP protocol.
+ *   3. Application framework layer, user interface, ready to use stacks.
+ *   
+ * Included subsystems:
+ * 	 1. Core
+ *   2. Runtime - implementation with Container Runtime, look at the RunC
+ *   3. Deploy - '$ git push' deploy to SBC
+ *   4. Service - microservices management based on the Runtime subsystem
+ *   5. API Gateway - WebSocket, REST
+ * 
  * Author: Constantin Alexandrov
  */
 
