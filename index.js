@@ -1,8 +1,8 @@
 /*
  * Copyright (c) 2016, Bigsens, LLC
- * 
+ *
  * Core Service Gateway (CSG)
- * 
+ *
  * The main idea is to build edge computing platform based on compute instances,
  * microservices and application framework. Platform includes several abstraction layers.
  * It's important to know what all the layers are located in the edge machine,
@@ -10,17 +10,17 @@
  * Communication between edge machines builds/run on the top of that platform.
  *
  * Basic layers are:
- *   1. Infrastructure layer, instances management, deploy/update, health check, etc.
- *   2. Microservices layer, endpoints, message API on the TCP protocol.
- *   3. Application framework layer, user interface, ready to use stacks.
- *   
- * Included subsystems:
- * 	 1. Core
+ *   # Application framework layer, user interface, ready to use stacks.
+ *   # Microservices layer, endpoints, message API on the TCP protocol.
+ *   # Infrastructure layer, instances management, deploy/update, health check, etc.
+ *
+ * Included subsystems (under development):
+ *   1. Core
  *   2. Runtime - implementation with Container Runtime, look at the RunC
  *   3. Deploy - '$ git push' deploy to SBC
  *   4. Service - microservices management based on the Runtime subsystem
  *   5. API Gateway - WebSocket, REST
- * 
+ *
  * Author: Constantin Alexandrov
  */
 
@@ -35,9 +35,9 @@ log4js.configure({
 		type : "console"
     }, {
     	"type" : "dateFile",
-        "filename" : (process.platform == 'linux' ? '/var/log/bigsens/' : '') + 'bs-core.log',
-        "pattern" : "-yyyy-MM-dd",
-        "alwaysIncludePattern" : false
+    	"filename" : (process.platform == 'linux' ? '/var/log/bigsens/' : '') + 'bs-core.log',
+    	"pattern" : "-yyyy-MM-dd",
+    	"alwaysIncludePattern" : false
     }],
     replaceConsole : false
 });
