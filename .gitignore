@@ -1,7 +1,8 @@
 config/
-**/APIgateway/
+**/api-gateway/
 **/deploy/
 **/runtime/
 **/protoify/
+**/system/
 node_modules/
 package.json

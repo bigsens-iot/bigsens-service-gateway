@@ -10,7 +10,8 @@
  * Communication between edge machines builds/run on the top of that platform.
  *
  * Basic layers are:
- *   # Application framework layer, user interface, ready to use stacks.
+ *   # User Applications layer, system shell, base gui, device manager, etc.
+ *   # Application Framework layer, user interface, ready to use stacks.
  *   # Microservices layer, endpoints, message API on the TCP protocol.
  *   # Infrastructure layer, instances management, deploy/update, health check, etc.
  *
@@ -35,44 +36,47 @@ log4js.configure({
 		type : "console"
     }, {
     	"type" : "dateFile",
-    	"filename" : (process.platform == 'linux' ? '/var/log/bigsens/' : '') + 'bs-core.log',
+    	"filename" : (process.platform == 'linux' ? '/var/log/bigsens/' : '') + 'bscore.log',
     	"pattern" : "-yyyy-MM-dd",
     	"alwaysIncludePattern" : false
     }],
     replaceConsole : false
 });
 
-// make it global
+// Make it global
 global.log4js = log4js;
 //global.RuntimeManager = RuntimeManager;
 //global.Route = Route;
 
-var //RuntimeManager = require('./lib/runtime/RuntimeManager.js'),
-	//Route = require('./lib/runtime/docker/Route.js'),
-	ServiceGateway = require('./lib/cgs/ServiceGateway.js'),
-	RemoteServer = require('./lib/cgs/RemoteServer.js');
+var RootService = require('./lib/root-service/RootService.js'),
+	RemoteServer = require('./lib/root-service/RemoteServer.js');
 
-var log = log4js.getLogger('BS_Core');
+var log = log4js.getLogger('BSCore');
 
 var main = function() {
 
 	try {
-		// Initialize internal service gateway on port 13777
-		var serviceGateway = new ServiceGateway();
-		serviceGateway.on('onReady', function(gw) {
-			console.log('Service gateway ready');
-			// Initialize service gateway on port 8080
+		// Initialize Root Service on port 13777
+		var rootService = new RootService();
+		rootService.on('onReady', function(root) {
+
+			log.info('Root Service is ready');
+
+			// Initialize proxy to remote server
 			var remote = new RemoteServer({
-				address : 'localhost', // in production point to the http://api.bigsens.com
+				address : 'localhost', // In production point to the http://api.bigsens.com
 				port : 8080
 			});
 			remote.on('onReady', function() {
-				console.log('Connected to remote server');
-				serviceGateway.attachProxy(remote);
+				log.info('Connected to the remote server');
+				rootService.attachProxy(remote);
 			});
 			remote.start();
+
 		});
-		serviceGateway.start();
+
+		rootService.start();
+
 	}
 	catch(err) {
 		log.error(err);
@@ -80,7 +84,7 @@ var main = function() {
 }
 
 /*
- * Start the service.
+ * Start the system
  */
 
 main();
