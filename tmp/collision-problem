@@ -1,0 +1,31 @@
+{
+	"cmd":256,
+	"data":{
+		"guid":"f0f6693b-55b1-4d01-8393-2a855715a47b",
+		"name":"receiver.1"
+	},
+	"dir":true
+}{
+	"cmd":256,
+	"data":{
+		"guid":"5c09ca45-bde6-4450-8856-0c03403f0fe8",
+		"name":"receiver.2"
+	},
+	"dir":true
+}{
+	"cmd":256,
+	"data":{
+		"guid":"6533c7e2-d761-4aa9-888a-21b1c958ff6a",
+		"name":"receiver.3"
+	},
+	"dir":true
+}{
+	"cmd":256,
+	"data":{
+		"guid":"8bf28d31-8b33-4fae-85e7-0b030e8dee90",
+		"name":"receiver.4"
+	},
+	"dir":true
+}
+
+error = SyntaxError: Unexpected token {
