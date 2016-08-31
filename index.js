@@ -49,7 +49,7 @@ global.log4js = log4js;
 //global.Route = Route;
 
 var RootService = require('./lib/root-service/RootService.js');
-	//RemoteServer = require('./lib/root-service/RemoteServer.js');
+	WebSocketProxy = require('./lib/root-service/WebSocketProxy.js');
 
 var log = log4js.getLogger('BSCore');
 
@@ -58,20 +58,22 @@ var main = function() {
 	try {
 		// Initialize Root Service on port 13777
 		var rootService = new RootService();
-		rootService.on('onReady', function(root) {
+		rootService.on('ready', function(root) {
 
 			log.info('Root Service is ready');
 
-			// Initialize proxy to remote server
-			/*var remote = new RemoteServer({
-				address : 'localhost', // In production point to the http://api.bigsens.com
-				port : 8080
+			// Initialize proxy as internal service
+			var wsproxy = new WebSocketProxy({
+				parentService : rootService,
+				targetAddress : 'localhost', // In production point to the http://api.bigsens.com
+				targetPort : 8080
 			});
-			remote.on('onReady', function() {
-				log.info('Connected to the remote server');
-				rootService.attachProxy(remote);
+
+			wsproxy.on('ready', function() {
+				log.info('WebSocket Proxy is ready');
 			});
-			remote.start();*/
+
+			wsproxy.start(); // Start the proxy
 
 		});
 
