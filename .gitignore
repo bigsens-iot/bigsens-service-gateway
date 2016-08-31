@@ -4,5 +4,6 @@ config/
 **/runtime/
 **/protoify/
 **/system/
+**/nexe/
 node_modules/
 package.json

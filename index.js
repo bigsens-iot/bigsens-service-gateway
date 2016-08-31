@@ -33,13 +33,13 @@ var proc = require('child_process'),
 
 log4js.configure({
 	appenders : [{
-		type : "console"
-    }, {
-    	"type" : "dateFile",
-    	"filename" : (process.platform == 'linux' ? '/var/log/bigsens/' : '') + 'bscore.log',
-    	"pattern" : "-yyyy-MM-dd",
-    	"alwaysIncludePattern" : false
-    }],
+		type : 'console'
+    }/*, {
+    	type : 'file', // 'dateFile',
+    	filename : (process.platform == 'linux' ? '/var/log/bigsens/' : '') + 'bscore.log',
+    	pattern : '-yyyy-MM-dd',
+    	alwaysIncludePattern : false
+    }*/],
     replaceConsole : false
 });
 
@@ -48,8 +48,8 @@ global.log4js = log4js;
 //global.RuntimeManager = RuntimeManager;
 //global.Route = Route;
 
-var RootService = require('./lib/root-service/RootService.js'),
-	RemoteServer = require('./lib/root-service/RemoteServer.js');
+var RootService = require('./lib/root-service/RootService.js');
+	//RemoteServer = require('./lib/root-service/RemoteServer.js');
 
 var log = log4js.getLogger('BSCore');
 
@@ -63,7 +63,7 @@ var main = function() {
 			log.info('Root Service is ready');
 
 			// Initialize proxy to remote server
-			var remote = new RemoteServer({
+			/*var remote = new RemoteServer({
 				address : 'localhost', // In production point to the http://api.bigsens.com
 				port : 8080
 			});
@@ -71,7 +71,7 @@ var main = function() {
 				log.info('Connected to the remote server');
 				rootService.attachProxy(remote);
 			});
-			remote.start();
+			remote.start();*/
 
 		});
 
