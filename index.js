@@ -49,9 +49,9 @@ global.log4js = log4js;
 //global.Route = Route;
 
 var RootService = require('./lib/root-service/RootService.js');
-	WebSocketProxy = require('./lib/root-service/WebSocketProxy.js');
+	RemoteConnect = require('./lib/root-service/RemoteConnect.js');
 
-var log = log4js.getLogger('BSCore');
+var log = log4js.getLogger('bscore');
 
 var main = function() {
 
@@ -62,21 +62,29 @@ var main = function() {
 
 			log.info('Root Service is ready');
 
-			// Initialize proxy as internal service
-			var wsproxy = new WebSocketProxy({
+			// Add remote connection to the remote server
+			var remote = new RemoteConnect({
 				parentService : rootService,
-				targetAddress : 'localhost', // In production point to the http://api.bigsens.com
-				targetPort : 8080
+				serverAddress : 'localhost', // In production point to the http://api.bigsens.com
+				serverPort : 8080
 			});
 
-			wsproxy.on('ready', function() {
-				log.info('WebSocket Proxy is ready');
-				
-
-				
+			remote.on('ready', function(ep) {
+				log.info('Remote connection is ready');
+				// test remote
+				setInterval(function() {
+					if(ep) {
+						ep.getDeviceList().then(function(deviceList) {
+							console.log('Device list', deviceList);
+							if(deviceList) {
+								// TODO: Store to the database
+							}
+						});
+					}
+				}, 5000);
 			});
 
-			wsproxy.start(); // Start the proxy
+			remote.start(); // Start the remote server connection
 
 		});
 
