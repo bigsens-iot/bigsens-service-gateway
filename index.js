@@ -71,6 +71,9 @@ var main = function() {
 
 			wsproxy.on('ready', function() {
 				log.info('WebSocket Proxy is ready');
+				
+
+				
 			});
 
 			wsproxy.start(); // Start the proxy
