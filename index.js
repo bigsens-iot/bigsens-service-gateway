@@ -72,6 +72,16 @@ var main = function() {
 			remote.on('ready', function(ep) {
 				log.info('Remote connection is ready');
 				// test remote
+				
+				if(ep) {
+					ep.getDeviceList().then(function(deviceList) {
+						console.log('Device list', deviceList);
+						if(deviceList) {
+							// TODO: Store to the database
+						}
+					});
+				}
+
 				setInterval(function() {
 					if(ep) {
 						ep.getDeviceList().then(function(deviceList) {
