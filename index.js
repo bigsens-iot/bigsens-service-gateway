@@ -62,7 +62,7 @@ var main = function() {
 
 			log.info('Root Service is ready');
 
-			// Add remote connection to the remote server
+			// Add connection to the remote server
 			var remote = new RemoteConnect({
 				parentService : rootService,
 				serverAddress : 'localhost', // In production point to the http://api.bigsens.com
@@ -72,17 +72,8 @@ var main = function() {
 			remote.on('ready', function(ep) {
 				log.info('Remote connection is ready');
 				// test remote
-				
-				if(ep) {
-					ep.getDeviceList().then(function(deviceList) {
-						console.log('Device list', deviceList);
-						if(deviceList) {
-							// TODO: Store to the database
-						}
-					});
-				}
 
-				setInterval(function() {
+				/*setInterval(function() {
 					if(ep) {
 						ep.getDeviceList().then(function(deviceList) {
 							console.log('Device list', deviceList);
@@ -91,7 +82,7 @@ var main = function() {
 							}
 						});
 					}
-				}, 5000);
+				}, 5000);*/
 			});
 
 			remote.start(); // Start the remote server connection
