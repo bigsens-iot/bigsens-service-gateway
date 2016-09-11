@@ -29,7 +29,8 @@ var proc = require('child_process'),
 	os = require('os'),
 	fs = require('fs'),
 	log4js = require('log4js'),
-	aguid = require('aguid');
+	aguid = require('aguid'),
+	P = require('./lib/common/protocol');
 
 log4js.configure({
 	appenders : [{
@@ -45,11 +46,12 @@ log4js.configure({
 
 // Make it global
 global.log4js = log4js;
+global.P = P;
 //global.RuntimeManager = RuntimeManager;
 //global.Route = Route;
 
-var RootService = require('./lib/root-service/RootService.js');
-	RemoteConnect = require('./lib/root-service/RemoteConnect.js');
+var RootService = require('./lib/services/root-service/RootService.js');
+	RemoteConnect = require('./lib/tools/RemoteConnect.js');
 
 var log = log4js.getLogger('bscore');
 
@@ -63,7 +65,7 @@ var main = function() {
 			log.info('Root Service is ready');
 
 			// Add connection to the remote server
-			var remote = new RemoteConnect({
+			/*var remote = new RemoteConnect({
 				parentService : rootService,
 				serverAddress : 'localhost', // In production point to the http://api.bigsens.com
 				serverPort : 8080
@@ -73,7 +75,7 @@ var main = function() {
 				log.info('Remote connection is ready');
 				// test remote
 
-				/*setInterval(function() {
+				setInterval(function() {
 					if(ep) {
 						ep.getDeviceList().then(function(deviceList) {
 							console.log('Device list', deviceList);
@@ -82,10 +84,11 @@ var main = function() {
 							}
 						});
 					}
-				}, 5000);*/
+				}, 5000);
 			});
 
 			remote.start(); // Start the remote server connection
+		    */
 
 		});
 
