@@ -7,6 +7,8 @@ Implementation of message pattern for microservices communication. Based on pure
 
 ## Microservices principles
 
+The entire platform is based on microservice mechanism. Services can be developed on any programming language. Interaction between services works on pure TCP sockets and messaging pattern. All services are deployed to the host machine e.g. Raspberry Pi or BeagleBone.
+
 Service address format is `remote_address : remote_port`. After connection the root service assigns the port to a new service and puts new record to the routing table. Below is the example of the routing table and a few possible services...
 
 | # | Service address | Endpoint name    | Message cache         |
