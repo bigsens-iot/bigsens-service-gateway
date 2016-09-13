@@ -5,7 +5,7 @@ Implementation of message pattern for microservices communication. Based on pure
   <img src="/resources/images/message-pattern.png">
 </p>
 
-## Routing principes
+## Microservices principes
 
 Service address format is `remote_address : remote_port`. After connection the root service assigns the port to a new service and puts new record to the routing table. Below is the example of the routing table and a few possible services...
 
@@ -20,3 +20,5 @@ Service address format is `remote_address : remote_port`. After connection the r
 | 7 | 0.0.0.0:1006    | usb.3gmod        | `[ msg1, msg2, ... ]` |
 | 8 | 0.0.0.0:1007    | ui.base          | `[ msg1, msg2, ... ]` |
 | . | ...             | ...              | ...                   |
+
+Service identification based on the `Universally Unique IDentifier (UUID)` [RFC4122](https://tools.ietf.org/html/rfc4122) standard. Every service contains mandatory metadata like `UUID` and `Service Name`. Identification goes during connection between service and `Root Service`, it's called the service announcement with the message `SERVICE_ANNCE`. The `SERVICE_ANNCE` is a broadcast message and others services will be notified about new service.
