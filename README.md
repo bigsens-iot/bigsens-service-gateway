@@ -7,11 +7,16 @@ Implementation of message pattern for microservices communication. Based on pure
 
 ## Routing principes
 
-Service address format is `remote_address : remote_port`. After connection the root service assigns the port to a new service and puts new record to the routing table. Below is the example of the routing table.
+Service address format is `remote_address : remote_port`. After connection the root service assigns the port to a new service and puts new record to the routing table. Below is the example of the routing table and a few possible services...
 
-| # | Service address | Endpoint name   | Message cache         |
-|---|-----------------|-----------------|-----------------------|
-| 1 | 0.0.0.0:1000    | root            | `[ msg1, msg2, ... ]` |
-| 2 | 0.0.0.0:1001    | zigbee          | `[ msg1, msg2, ... ]` |
-| 3 | 1.0.0.1:1002    | proxy           | `[ msg1, msg2, ... ]` |
-| 4 | 1.0.0.1:1000    | ui              | `[ msg1, msg2, ... ]` |
+| # | Service address | Endpoint name    | Message cache         |
+|---|-----------------|------------------|-----------------------|
+| 1 | 0.0.0.0:1000    | root             | `[ msg1, msg2, ... ]` |
+| 2 | 0.0.0.0:1001    | zigbee.cc2530/31 | `[ msg1, msg2, ... ]` |
+| 3 | 0.0.0.0:1002    | belkin.wemo      | `[ msg1, msg2, ... ]` |
+| 4 | 0.0.0.0:1003    | lg.smarttv       | `[ msg1, msg2, ... ]` |
+| 5 | 0.0.0.0:1004    | proxy.ws         | `[ msg1, msg2, ... ]` |
+| 6 | 0.0.0.0:1005    | goog.voicectrl   | `[ msg1, msg2, ... ]` |
+| 7 | 0.0.0.0:1006    | usb.3gmod        | `[ msg1, msg2, ... ]` |
+| 8 | 0.0.0.0:1007    | ui.base          | `[ msg1, msg2, ... ]` |
+| . | ...             | ...              | ...                   |
