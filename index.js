@@ -35,12 +35,12 @@ var proc = require('child_process'),
 log4js.configure({
 	appenders : [{
 		type : 'console'
-    }/*, {
+    }, {
     	type : 'file', // 'dateFile',
-    	filename : (process.platform == 'linux' ? '/var/log/bigsens/' : '') + 'bscore.log',
+    	filename : (process.platform == 'linux' ? '/var/log/bigsens/' : '') + 'bs-core.log',
     	pattern : '-yyyy-MM-dd',
     	alwaysIncludePattern : false
-    }*/],
+    }],
     replaceConsole : false
 });
 
@@ -65,7 +65,7 @@ var main = function() {
 			log.info('Root Service is ready');
 
 			// Add connection to the remote server
-			/*var remote = new RemoteConnect({
+			var remote = new RemoteConnect({
 				parentService : rootService,
 				serverAddress : 'localhost', // In production point to the http://api.bigsens.com
 				serverPort : 8080
@@ -88,7 +88,7 @@ var main = function() {
 			});
 
 			remote.start(); // Start the remote server connection
-		    */
+		    
 
 		});
 
