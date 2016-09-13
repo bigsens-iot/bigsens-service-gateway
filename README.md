@@ -5,7 +5,7 @@ Implementation of message pattern for microservices communication. Based on pure
   <img src="/resources/images/message-pattern.png">
 </p>
 
-## Microservices principes
+## Microservices principles
 
 Service address format is `remote_address : remote_port`. After connection the root service assigns the port to a new service and puts new record to the routing table. Below is the example of the routing table and a few possible services...
 
