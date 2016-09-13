@@ -15,7 +15,7 @@ Service address format is `remote_address : remote_port`. After connection the r
 | 2 | 0.0.0.0:1001    | [zigbee.cc2530/31](https://github.com/bigsens-iot/zigbee-service) | `[ msg1, msg2, ... ]` |
 | 3 | 0.0.0.0:1002    | belkin.wemo      | `[ msg1, msg2, ... ]` |
 | 4 | 0.0.0.0:1003    | lg.smarttv       | `[ msg1, msg2, ... ]` |
-| 5 | 0.0.0.0:1004    | [proxy.ws](https://github.com/bigsens-iot/bigsens-service-gateway/tree/master/lib/services/root-service) | `[ msg1, msg2, ... ]` |
+| 5 | 0.0.0.0:1004    | [proxy.ws](https://github.com/bigsens-iot/bigsens-service-gateway/tree/master/lib/services/websocket-proxy) | `[ msg1, msg2, ... ]` |
 | 6 | 0.0.0.0:1005    | goog.voicectrl   | `[ msg1, msg2, ... ]` |
 | 7 | 0.0.0.0:1006    | usb.3gmod        | `[ msg1, msg2, ... ]` |
 | 8 | 0.0.0.0:1007    | ui.base          | `[ msg1, msg2, ... ]` |
