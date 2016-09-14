@@ -27,7 +27,7 @@ Service identification based on the `Universally Unique IDentifier (UUID)` [RFC4
 
 ## Message model
 
-All messages can be sent as `broadcast`, `multicast` or `unicast`. In the current implementation are two types of messages.
+All messages can be sent as `broadcast`, `multicast` or `unicast`. Messages are described in the [protocol section](https://github.com/bigsens-iot/bigsens-service-gateway/blob/master/PROTOCOL.md). In the current implementation are two types of messages.
 
 ### Event message
 Several services would like to use event-notification to coordinate their actions, and would like to use messaging to communicate those events. This type of message does not generate any response from receiver. When a sender service has an event to announce, it will create an event object, wrap it in a message, and send it on a channel. The receiver service will receive the `event message`, get the event, and process it. Messaging does not change the event notification, just makes sure that the notification gets to the receiver. The `event message` can be used for events like announcement or state changing.
