@@ -2,6 +2,24 @@
 
 All payloads and reply are in `json` format. The column `R` in the tables means mandatory `M` or optional `O` property. 
 
+## Messages 
+
+* [SERVICE_ANNCE](#SERVICE_ANNCE)
+* [SERVICE_INFO](#)
+* [SERVICE_READY](#)
+* [SERVICE_LIST](#)
+* [MACHINE_INFO](#MACHINE_INFO)
+* [DEVICE_LIST](#DEVICE_LIST)
+* [DEVICE_STATE](#DEVICE_STATE)
+* [DEVICE_GET_INFO_BY_ID](#)
+* [DEVICE_GET_EXTENDED_INFO_BY_ID](#)
+* [DEVICE_READ_ATTRIBUTE](#)
+* [DEVICE_WRITE_ATTRIBUTE](#)
+* [PAIRING_MODE](#)
+
+## Messages description
+
+<a name="SERVICE_ANNCE"></a>
 ### SERVICE_ANNCE
 Service announcement. Must be sent after connection to the `Root Service`.
 
@@ -17,6 +35,7 @@ Service announcement. Must be sent after connection to the `Root Service`.
     | description  | O | string | Service description                                    |
     | keywords     | O | string | Keyword can be used for further search                 | 
 
+<a name="MACHINE_INFO"></a>
 ### MACHINE_INFO
 Information about resources on the host machine.
 
@@ -32,6 +51,7 @@ Information about resources on the host machine.
     | meminfo     | M | object | ```{ totalMem : 1002.16796875, freeMem : 708.671875, free : 70.71 }``` |
     | nwkifaces   | M | object | List of network interfaces on the machine<br>```{ eth0 : [{ address : '192.168.0.100', netmask : '255.255.255.0', family : 'IPv4', mac : '22:c1:82:c1:60:be', internal : false }, ... ]}``` |
 
+<a name="DEVICE_LIST"></a>
 ### DEVICE_LIST
 This message is used to collecting information about all devices from services. 
 
@@ -43,6 +63,7 @@ This message is used to collecting information about all devices from services.
 
 * (_Array_): An array that contains `device objects` with information about device.
 
+<a name="DEVICE_STATE"></a>
 ### DEVICE_STATE
 Emit when a device state is changing.
 
