@@ -17,10 +17,6 @@ Service announcement. Must be sent after connection to the `Root Service`.
     | description  | O | string | Service description                                    |
     | keywords     | O | string | Keyword can be used for further search                 | 
 
-**Reply payload:**
-
-* none
-
 ### MACHINE_INFO
 Information about resources on the host machine.
 
@@ -36,9 +32,16 @@ Information about resources on the host machine.
     | meminfo     | M | object | ```{ totalMem : 1002.16796875, freeMem : 708.671875, free : 70.71 }``` |
     | nwkifaces   | M | object | List of network interfaces on the machine<br>```{ eth0 : [{ address : '192.168.0.100', netmask : '255.255.255.0', family : 'IPv4', mac : '22:c1:82:c1:60:be', internal : false }, ... ]}``` |
 
-**Reply payload:**
+### DEVICE_LIST
+This message is used to collecting information about all devices from services. 
+
+**Request payload:**
 
 * none
+
+**Reply payload:**
+
+* (_Array_): An array that contains `device objects` with information about device.
 
 ### DEVICE_STATE
 Emit when a device state is changing.
@@ -51,8 +54,5 @@ Emit when a device state is changing.
     | Property     | R | Type   | Description                                                   |
     |--------------|---|--------|---------------------------------------------------------------|
     | state        | M | uint8  | `0x00` new device discovered by service<br>`0x01` device is removed from service<br>`0x02`<br>`0x03`<br>`0x04`<br>`0xff`|
-    | device       | M | object | An device object                                              |
+    | device       | M | object | An `device object`                                              |
 
-**Reply payload:**
-
-* none
