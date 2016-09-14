@@ -24,3 +24,15 @@ Service address format is `remote_address : remote_port`. After connection the `
 | . | ...             | ...              | ...                   |
 
 Service identification based on the `Universally Unique IDentifier (UUID)` [RFC4122](https://tools.ietf.org/html/rfc4122) standard. Every service contains mandatory metadata like `UUID` and `Service Name`. Identification goes during connection between service and `Root Service`, it's called the service announcement with the message `SERVICE_ANNCE`. The `SERVICE_ANNCE` is a broadcast message and others services will be notified about announcement.
+
+## Message model
+
+All messages can be sent as broadcast, multicast or unicast. In the current implementation are two types of messages.
+
+### Event message
+Several services would like to use event-notification to coordinate their actions, and would like to use messaging to communicate those events. This type of message does not generate any response from receiver. When a sender service has an event to announce, it will create an event object, wrap it in a message, and send it on a channel. The receiver service will receive the `event message`, get the event, and process it. Messaging does not change the event notification, just makes sure that the notification gets to the receiver. The `event message` can be used for events like announcement or state changing.
+
+### Command message
+An service needs to invoke functionality provided by other service. This type of message is generating a response from receiver. There is no specific message type for commands. A `command message` is simply a regular message that happens to contain a command. The `command message` is a text message containing the command arguments in `json` format, a `command message` is a message with a command stored in it. There are two sub-types of command messages.
+* `asyncast` - message with asynchronous response
+* `syncast` - message with synchronous response
