@@ -85,10 +85,10 @@ Information about resources on the host machine.
 	nwkifaces : {
 		eth0 : [{
 			address : '192.168.0.100',
-		        netmask : '255.255.255.0',
-		        family : 'IPv4',
-		        mac : '22:c1:82:c1:60:be',
-		        internal : false
+			netmask : '255.255.255.0',
+			family : 'IPv4',
+			mac : '22:c1:82:c1:60:be',
+			internal : false
 		}, ... ]
 	},
 	...
