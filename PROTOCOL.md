@@ -3,7 +3,7 @@
 All payloads and reply are in `json` format. The column `R` in the tables means mandatory `M` or optional `O` property. 
 
 ### SERVICE_ANNCE
-Must be sent after connection to the `Root Service`.
+Service announcement. Must be sent after connection to the `Root Service`.
 
 **Event payload:**
 
