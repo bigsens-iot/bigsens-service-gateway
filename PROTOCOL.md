@@ -44,7 +44,7 @@ Add messages to the endpoint registry. Root service will to use that information
 **Event payload:**
 
 * (_Object_): An object that contains messages for storing to the message registry.
-```
+```js
 {
 	DEVICE_STATE : '*',
 	PERMIT_JOIN : '*',
@@ -70,6 +70,31 @@ Information about resources on the host machine.
     | cpuinfo     | M | object | Machine CPU information                                               |  
     | meminfo     | M | object | ```{ totalMem : 1002.16796875, freeMem : 708.671875, free : 70.71 }``` |
     | nwkifaces   | M | object | List of network interfaces on the machine<br>```{ eth0 : [{ address : '192.168.0.100', netmask : '255.255.255.0', family : 'IPv4', mac : '22:c1:82:c1:60:be', internal : false }, ... ]}``` |
+
+**Example**
+```js
+{
+	guid : 'a567e912-7ac9-471c-83ab-e8e22f992d8a',
+	hostname : 'bigsens',
+	cpuinfo : { ... },
+	meminfo : {
+		totalMem : 1002.16796875,
+		freeMem : 708.671875,
+		free : 70.71
+	},
+	nwkifaces : {
+		eth0 : [{
+			address : '192.168.0.100',
+		        netmask : '255.255.255.0',
+		        family : 'IPv4',
+		        mac : '22:c1:82:c1:60:be',
+		        internal : false
+		}, ... ]
+	},
+	...
+}
+```
+
 
 <a name="DEVICE_LIST"></a>
 ### DEVICE_LIST
