@@ -94,6 +94,6 @@ Emit when a device state is changing.
 
     | Property     | R | Type   | Description                                                   |
     |--------------|---|--------|---------------------------------------------------------------|
-    | state        | M | uint8  | `0x00` new device discovered by service<br>`0x01` device is removed from service<br>`0x02`<br>`0x03`<br>`0x04`<br>`0xff`|
+    | state        | M | uint8  | `DS_JOIN : 0x00` New device discovered by service<br>`DS_LEAVE : 0x01` Device is removed from service<br>`DS_ONLINE : 0x02`<br>`DS_OFFLINE : 0x03`<br>`DS_CHANGE_VALUE : 0x04`<br>`DS_UNKNOWN : 0xff`|
     | device       | M | object | An `device object`                                              |
 
