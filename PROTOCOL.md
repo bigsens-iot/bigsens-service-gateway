@@ -8,6 +8,8 @@ All payloads and reply are in `json` format. The column `R` in the tables means 
 * [SERVICE_INFO](#)
 * [SERVICE_READY](#)
 * [SERVICE_LIST](#)
+* [MESSAGE_REGISTER](#MESSAGE_REGISTER)
+* [MESSAGE_DISCOVER](#)
 * [MACHINE_INFO](#MACHINE_INFO)
 * [DEVICE_LIST](#DEVICE_LIST)
 * [DEVICE_STATE](#DEVICE_STATE)
@@ -34,6 +36,24 @@ Service announcement. Must be sent after connection to the `Root Service`.
     | version      | M | string | Verison in the format `major.minor[.build[.revision]]` |
     | description  | O | string | Service description                                    |
     | keywords     | O | string | Keyword can be used for further search                 | 
+
+<a name="MESSAGE_REGISTER"></a>
+### MESSAGE_REGISTER
+Add messages to the endpoint registry. Root service will to use that information for messaging routing. Other services can to discover messages associated with the target service. 
+
+**Event payload:**
+
+* (_Object_): An object that contains messages for storing to the message registry.
+```
+{
+	DEVICE_STATE : '*',
+	PERMIT_JOIN : '*',
+	DEVICE_READ_ATTRIBUTE : '*',
+	DEVICE_LIST : '*',
+	DEVICE_GET_INFO_BY_ID : '*',
+    ...
+}
+```
 
 <a name="MACHINE_INFO"></a>
 ### MACHINE_INFO
