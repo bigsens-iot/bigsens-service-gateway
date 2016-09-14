@@ -1,6 +1,10 @@
 # Message protocol
 
-All payloads and reply are in `json` format. The column `R` in the tables means mandatory `M` or optional `O` property. 
+All `Events` and `Request-Reply` payloads are in `json` format. The column `R` in the tables means mandatory `M` or optional `O` property.
+
+## Synchronous and asynchronous replies
+
+The main difference is that the synchronous replies from destination endpoints are collected by the `Root Service` in a bunch and sent to the source endpoint. In this case the reply payload will be  an array of replies.
 
 ## Messages 
 
@@ -39,7 +43,7 @@ Service announcement. Must be sent after connection to the `Root Service`.
 
 <a name="MESSAGE_REGISTER"></a>
 ### MESSAGE_REGISTER
-Add messages to the endpoint registry. Root service will to use that information for messaging routing. Other services can to discover messages associated with the target service. 
+Add messages to the endpoint registry. `Root Service` will to use that information for messaging routing. Other services can to discover messages associated with the target service. 
 
 **Event payload:**
 
