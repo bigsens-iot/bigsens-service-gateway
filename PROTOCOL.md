@@ -43,7 +43,7 @@ Service announcement. Must be sent after connection to the `Root Service`.
 
 <a name="MESSAGE_REGISTER"></a>
 ### MESSAGE_REGISTER
-Add messages to the endpoint registry. `Root Service` will to use that information for messaging routing. Other services can to discover messages associated with the target service. 
+Add messages to the endpoint registry. `Root Service` will to use that information for message routing. Other services can to discover messages associated with the target service. 
 
 **Event payload:**
 
