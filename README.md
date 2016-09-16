@@ -41,3 +41,5 @@ Several services would like to use event-notification to coordinate their action
 An service needs to invoke functionality provided by other service and receive response. This type of message is generating a response from receiver. There is no specific message type for request. A `request-reply message` is simply a regular message that happens to contain a request. The `request-reply message` is a text message containing the request in `json` format, a `request-reply message` is a message with a request stored in it. There are two sub-types of request-reply messages.
 * `asyncast` - message with asynchronous reply
 * `syncast` - message with synchronous reply
+
+The main difference between `asyncast` and `syncast` is that the synchronous replies from destination endpoints are collected by the `Root Service` in a bunch and sent to the source endpoint. In this case the reply payload will be an array of replies.
