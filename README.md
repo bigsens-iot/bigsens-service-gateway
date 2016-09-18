@@ -9,18 +9,6 @@ Implementation of message pattern for microservices communication. Based on pure
 
 The entire platform is based on microservice mechanism. Services can be developed on any programming language, keep a local storage and/or connecting to the remote services e.g. IFTTT,  voice recognition services, etc. Host interaction between services works on pure TCP sockets and messaging pattern. All services are deployed to the host machine e.g. Raspberry Pi, BeagleBone and others.
 
-<<<<<<< HEAD
-| # | Service address | Endpoint name   | Message cache         |
-|---|-----------------|-----------------|-----------------------|
-| 1 | 0.0.0.0:1000    | root            | `[ msg1, msg2, ... ]` |
-| 2 | 0.0.0.0:1001    | zigbee.dev      | `[ msg1, msg2, ... ]` |
-| 3 | 0.0.0.0:1002    | wemo.dev        | `[ msg1, msg2, ... ]` |
-| 4 | 0.0.0.0:1003    | lg-smarttv.dev  | `[ msg1, msg2, ... ]` |
-| 5 | 0.0.0.0:1004    | ws.proxy        | `[ msg1, msg2, ... ]` |
-| 6 | 0.0.0.0:1005    | apiai.srv       | `[ msg1, msg2, ... ]` |
-| . | 1.0.0.1:1002    | ...             | `[ msg1, msg2, ... ]` |
-| N | 1.0.0.1:1000    | ui              | `[ msg1, msg2, ... ]` |
-=======
 Service address format is `remote_address : remote_port`. After connection the `Root Service` assigns the port to a new service and puts new record to the routing table. Below is the example of the routing table and a few possible services...
 
 | # | Service address | Endpoint name    | Message registry      |
@@ -55,4 +43,3 @@ An service needs to invoke functionality provided by other service and receive r
 * `syncast` - message with synchronous reply
 
 The main difference between `asyncast` and `syncast` is that the synchronous replies from destination endpoints are collected by the `Root Service` in a bunch and sent to the source endpoint. In this case the reply payload will be an array of replies.
->>>>>>> 3d07e4d1ff91b944fa1b50ed022111e98555f183
