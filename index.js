@@ -25,7 +25,8 @@
  * Author: Constantin Alexandrov
  */
 
-var proc = require('child_process'),
+var _ = require('underscore'),
+	proc = require('child_process'),
 	os = require('os'),
 	fs = require('fs'),
 	log4js = require('log4js'),
@@ -50,7 +51,8 @@ global.P = P;
 //global.RuntimeManager = RuntimeManager;
 //global.Route = Route;
 
-var RootService = require('./lib/services/root-service/RootService.js');
+var RootService = require('./lib/services/root-service/RootService.js'),
+	Condition = require('./lib/services/root-service/Condition.js');
 	RemoteConnect = require('./lib/tools/RemoteConnect.js');
 
 var log = log4js.getLogger('bscore');
@@ -58,6 +60,10 @@ var log = log4js.getLogger('bscore');
 var main = function() {
 
 	try {
+
+		//var condition = new Condition(['&&', '==', 'armMode', 0x01, 'Alarm1' ]);
+		//condition.process({ 'Alarm1' : true, 'armMode' : 0x01 });
+
 		// Initialize Root Service on port 13777
 		var rootService = new RootService();
 		rootService.on('ready', function(root) {
@@ -98,6 +104,7 @@ var main = function() {
 	catch(err) {
 		log.error(err);
 	}
+
 }
 
 /*
