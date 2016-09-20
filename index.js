@@ -62,7 +62,9 @@ var main = function() {
 	try {
 
 		//var condition = new Condition(['&&', '==', 'armMode', 0x01, 'Alarm1' ]);
-		//condition.process({ 'Alarm1' : true, 'armMode' : 0x01 });
+		//var ret = condition.process({ 'Alarm1' : true, 'armMode' : 0x01 });
+		
+		//console.log(ret);
 
 		// Initialize Root Service on port 13777
 		var rootService = new RootService();
