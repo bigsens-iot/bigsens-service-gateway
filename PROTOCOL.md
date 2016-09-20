@@ -74,7 +74,7 @@ Add messages to the endpoint registry. `Root Service` will to use that informati
 
 <a name="MACHINE_INFO"></a>
 ### MACHINE_INFO
-Information about resources on the host machine.
+Information about host machine with resources info.
 
 **Event payload:**
 
