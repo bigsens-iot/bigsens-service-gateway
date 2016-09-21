@@ -83,7 +83,7 @@ var main = function() {
 				log.info('Remote connection is ready');
 				// test remote
 
-				setInterval(function() {
+				/*setInterval(function() {
 					if(ep) {
 						ep.getDeviceList().then(function(deviceList) {
 							console.log('Device list', deviceList);
@@ -92,7 +92,7 @@ var main = function() {
 							}
 						});
 					}
-				}, 5000);
+				}, 5000);*/
 			});
 
 			remote.start(); // Start the remote server connection
