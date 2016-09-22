@@ -28,6 +28,9 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 
 ## Devices
 
+* [DT_SMART_PLUG : 81](#)
+* [DT_TEMPERATURE_SENSOR : 770](#)
+* [DT_IAS_ANCILLARY_CONTROL_EQUIPMENT : 1025](#)
 * [DT_MOTION_SENSOR : 1029](#IAS_ZONE_DEVICE)
 * [DT_CONTACT_SWITCH : 1030](#IAS_ZONE_DEVICE)
 * [DT_FIRE_SENSOR : 1031](#IAS_ZONE_DEVICE)
