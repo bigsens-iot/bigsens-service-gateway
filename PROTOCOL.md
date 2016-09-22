@@ -49,6 +49,7 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 
 ### Intruder Alarm System (IAS) device
 
+**Types**
 * `DT_MOTION_SENSOR : 1029`
 * `DT_CONTACT_SWITCH : 1030`
 * `DT_FIRE_SENSOR : 1031`
@@ -81,9 +82,8 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
       "RestoreReports": true,
       "Trouble": null,
       "AC": null
-    },
-    "methods": {}
-  }
+    }
+}
 ```
 
 ## Messages description
@@ -177,7 +177,7 @@ This message is used to collecting information about all devices from services.
 
 **Reply payload:**
 
-* (_Array_): An array that contains [device objects](#DEVICE_OBJECTS) with information about device.
+* (_Array_): An array that contains [device objects](#DEVICE_OBJECT) with information about device.
 
 <a name="DEVICE_STATE"></a>
 ### DEVICE_STATE
@@ -191,5 +191,5 @@ Emit when a device state is changing.
     | Property     | R | Type   | Description                                                   |
     |--------------|---|--------|---------------------------------------------------------------|
     | state        | M | uint8  | `DS_JOIN : 0x00` New device discovered by service<br>`DS_LEAVE : 0x01` Device is removed from service<br>`DS_ONLINE : 0x02` Device is online<br>`DS_OFFLINE : 0x03` Device is offline<br>`DS_CHANGE_VALUE : 0x04`<br> Device property has changed or event occurred<br>`DS_UNKNOWN : 0xff`                                           |
-    | device       | M | object | An [device object](#DEVICE_OBJECTS)                                       |
+    | device       | M | object | An [device object](#DEVICE_OBJECT)                                       |
 
