@@ -2,6 +2,13 @@
 
 All `Events` and `Request-Reply` payloads are in `json` format. The column `R` in the tables means mandatory `M` or optional `O` property.
 
+## Entity
+
+* [Message](#)
+* [Machine](#)
+* [Service](#SERVICE_OBJECT)
+* [Device](#DEVICE_OBJECT)
+
 ## Messages 
 
 * [SERVICE_ANNCE](#SERVICE_ANNCE)
@@ -19,7 +26,15 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 * [DEVICE_WRITE_ATTRIBUTE](#)
 * [PAIRING_MODE](#)
 
-## Entity structs
+## Devices
+
+* [DT_MOTION_SENSOR : 1029](#IAS_ZONE_DEVICE)
+* [DT_CONTACT_SWITCH : 1030](#IAS_ZONE_DEVICE)
+* [DT_FIRE_SENSOR : 1031](#IAS_ZONE_DEVICE)
+* [DT_WATER_SENSOR : 1032](#IAS_ZONE_DEVICE)
+* [DT_GAS_SENSOR : 1033](#IAS_ZONE_DEVICE)
+
+## Entity description
 
 <a name="SERVICE_OBJECT"></a>
 ### Service object
@@ -43,48 +58,6 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 | attributes   | M | object | Device attributes depended on the [device type](#DEVICE_TYPES) |
 | methods      | O | object | Device methods e.g. `on/off`, `change level`                 |
 | spec         | O | object | Specific device information depends on manufacturer, protocol, etc. |
-
-<a name="DEVICE_TYPES"></a>
-## Device types
-
-### Intruder Alarm System (IAS) device
-
-**Types**
-* `DT_MOTION_SENSOR : 1029`
-* `DT_CONTACT_SWITCH : 1030`
-* `DT_FIRE_SENSOR : 1031`
-* `DT_WATER_SENSOR : 1032`
-* `DT_GAS_SENSOR : 1033`
-
-| Attribute    | R | Type | Description                                            |
-|--------------|---|------|--------------------------------------------------------|
-| Alarm1         | M | bool |  `true` – Opened or alarmed, `false` – Closed or not alarmed         |
-| Alarm2         | M | bool | `true` – Opened or alarmed, `false` – Closed or not alarmed |
-| Tamper       | M | bool | `true` – Tampered, `false` – Not tampered|
-| Battery   | M | bool | `true` – Low battery, `false` – Battery OK |
-| SupervisionReports      | M | bool | `true` – Reports, `false` – Does not report |
-| RestoreReports         | M | bool | `true` – Reports restore, `false` – Does not report restore |
-| Trouble         | M | bool | `true` – Trouble/Failure, `false` – OK |
-| AC         | M | bool |  `true` – AC/Mains fault, `false` – AC/Mains OK |
-
-**Example**
-```js
-{
-    "guid": "0ef99605-9d37-4e45-8df7-91d4942cfc75",
-    "type": 1030, // DT_CONTACT_SWITCH
-    "status": "online",
-    "attributes": {
-      "Alarm1": false,
-      "Alarm2": false,
-      "Tamper": false,
-      "Battery": false,
-      "SupervisionReports": false,
-      "RestoreReports": true,
-      "Trouble": null,
-      "AC": null
-    }
-}
-```
 
 ## Messages description
 
@@ -193,3 +166,39 @@ Emit when a device state is changing.
     | state        | M | uint8  | `DS_JOIN : 0x00` New device discovered by service<br>`DS_LEAVE : 0x01` Device is removed from service<br>`DS_ONLINE : 0x02` Device is online<br>`DS_OFFLINE : 0x03` Device is offline<br>`DS_CHANGE_VALUE : 0x04`<br> Device property has changed or event occurred<br>`DS_UNKNOWN : 0xff`                                           |
     | device       | M | object | An [device object](#DEVICE_OBJECT)                                       |
 
+
+<a name="DEVICE_TYPES"></a>
+## Devices description
+
+<a name="IAS_ZONE_DEVICE"></a>
+### Intruder Alarm System (IAS) device
+
+| Attribute    | R | Type | Description                                            |
+|--------------|---|------|--------------------------------------------------------|
+| Alarm1         | M | bool |  `true` – Opened or alarmed, `false` – Closed or not alarmed         |
+| Alarm2         | M | bool | `true` – Opened or alarmed, `false` – Closed or not alarmed |
+| Tamper       | M | bool | `true` – Tampered, `false` – Not tampered|
+| Battery   | M | bool | `true` – Low battery, `false` – Battery OK |
+| SupervisionReports      | M | bool | `true` – Reports, `false` – Does not report |
+| RestoreReports         | M | bool | `true` – Reports restore, `false` – Does not report restore |
+| Trouble         | M | bool | `true` – Trouble/Failure, `false` – OK |
+| AC         | M | bool |  `true` – AC/Mains fault, `false` – AC/Mains OK |
+
+**Example**
+```js
+{
+    "guid": "0ef99605-9d37-4e45-8df7-91d4942cfc75",
+    "type": 1030, // DT_CONTACT_SWITCH
+    "status": "online",
+    "attributes": {
+      "Alarm1": false,
+      "Alarm2": false,
+      "Tamper": false,
+      "Battery": false,
+      "SupervisionReports": false,
+      "RestoreReports": true,
+      "Trouble": null,
+      "AC": null
+    }
+}
+```
