@@ -63,7 +63,7 @@ var main = function() {
 
 		//var condition = new Condition(['&&', '==', 'armMode', 0x01, 'Alarm1' ]);
 		//var ret = condition.process({ 'Alarm1' : true, 'armMode' : 0x01 });
-		
+
 		//console.log(ret);
 
 		// Initialize Root Service on port 13777
@@ -75,8 +75,9 @@ var main = function() {
 			// Add connection to the remote server
 			var remote = new RemoteConnect({
 				parentService : rootService,
-				serverAddress : 'localhost', // In production point to the http://api.bigsens.com
-				serverPort : 8080
+				serverAddress : '.bigsens.com/zigbee-service-v0/ws/' // In production point to the http://api.bigsens.com
+				//serverAddress : 'localhost',
+				//serverPort : 8080
 			});
 
 			remote.on('ready', function(ep) {
@@ -96,7 +97,6 @@ var main = function() {
 			});
 
 			remote.start(); // Start the remote server connection
-		    
 
 		});
 
