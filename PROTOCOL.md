@@ -180,7 +180,7 @@ Emit when a device state is changing.
 |--------------|---|------|--------------------------------------------------------|
 | Temperature  | M | int  | Represents the temperature in degrees Celsius. Range from -273.15°C to 327.67°C. |
 | Humidity     | O | uint | Represents the relative humidity in %. Range from 0% to 100%. |
-| Battery   | O | bool | `true` – Low battery, `false` – Battery OK |
+| Battery   | O | bool | `true` - Low battery, `false` - Battery OK |
 
 **Example**
 ```js
@@ -200,14 +200,14 @@ Emit when a device state is changing.
 
 | Attribute    | R | Type | Description                                            |
 |--------------|---|------|--------------------------------------------------------|
-| Alarm1         | M | bool |  `true` – Opened or alarmed, `false` – Closed or not alarmed         |
-| Alarm2         | M | bool | `true` – Opened or alarmed, `false` – Closed or not alarmed |
-| Tamper       | M | bool | `true` – Tampered, `false` – Not tampered|
-| Battery   | M | bool | `true` – Low battery, `false` – Battery OK |
-| SupervisionReports      | M | bool | `true` – Reports, `false` – Does not report |
-| RestoreReports         | M | bool | `true` – Reports restore, `false` – Does not report restore |
-| Trouble         | M | bool | `true` – Trouble/Failure, `false` – OK |
-| AC         | M | bool |  `true` – AC/Mains fault, `false` – AC/Mains OK |
+| Alarm1         | M | bool |  `true` - Opened or alarmed, `false` - Closed or not alarmed         |
+| Alarm2         | M | bool | `true` - Opened or alarmed, `false` - Closed or not alarmed |
+| Tamper       | M | bool | `true` - Tampered, `false` - Not tampered|
+| Battery   | M | bool | `true` - Low battery, `false` - Battery OK |
+| SupervisionReports      | M | bool | `true` - Reports, `false` - Does not report |
+| RestoreReports         | M | bool | `true` - Reports restore, `false` - Does not report restore |
+| Trouble         | M | bool | `true` - Trouble/Failure, `false` - OK |
+| AC         | M | bool |  `true` - AC/Mains fault, `false` - AC/Mains OK |
 
 **Example**
 ```js
