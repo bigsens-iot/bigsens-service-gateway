@@ -29,13 +29,13 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 ## Devices
 
 * [DT_SMART_PLUG : 81](#)
-* [DT_TEMPERATURE_SENSOR : 770](#)
+* [DT_TEMPERATURE_SENSOR : 770](#DT_TEMPERATURE_SENSOR)
 * [DT_IAS_ANCILLARY_CONTROL_EQUIPMENT : 1025](#)
-* [DT_MOTION_SENSOR : 1029](#IAS_ZONE_DEVICE)
-* [DT_CONTACT_SWITCH : 1030](#IAS_ZONE_DEVICE)
-* [DT_FIRE_SENSOR : 1031](#IAS_ZONE_DEVICE)
-* [DT_WATER_SENSOR : 1032](#IAS_ZONE_DEVICE)
-* [DT_GAS_SENSOR : 1033](#IAS_ZONE_DEVICE)
+* [DT_MOTION_SENSOR : 1029](#DT_IAS_ZONE_DEVICE)
+* [DT_CONTACT_SWITCH : 1030](#DT_IAS_ZONE_DEVICE)
+* [DT_FIRE_SENSOR : 1031](#DT_IAS_ZONE_DEVICE)
+* [DT_WATER_SENSOR : 1032](#DT_IAS_ZONE_DEVICE)
+* [DT_GAS_SENSOR : 1033](#DT_IAS_ZONE_DEVICE)
 
 ## Entity description
 
@@ -173,7 +173,29 @@ Emit when a device state is changing.
 <a name="DEVICE_TYPES"></a>
 ## Devices description
 
-<a name="IAS_ZONE_DEVICE"></a>
+<a name="DT_TEMPERATURE_SENSOR"></a>
+### Temperature sensor
+
+| Attribute    | R | Type | Description                                            |
+|--------------|---|------|--------------------------------------------------------|
+| Temperature  | M | int  | Represents the temperature in degrees Celsius. Range from -273.15°C to 327.67°C. |
+| Humidity     | O | uint | Represents the relative humidity in %. Range from 0% to 100%. |
+| Battery   | O | bool | `true` – Low battery, `false` – Battery OK |
+
+**Example**
+```js
+{
+	guid: '45016b7d-87af-4ded-8965-f28145a05dc9',
+	type: 770, // DT_TEMPERATURE_SENSOR
+	status: 'online',
+	attributes: {
+		Temperature: 27.45,
+		Humidity: 53.99,
+		Battery : false
+	}
+}
+```
+<a name="DT_IAS_ZONE_DEVICE"></a>
 ### Intruder Alarm System (IAS) device
 
 | Attribute    | R | Type | Description                                            |
@@ -190,18 +212,18 @@ Emit when a device state is changing.
 **Example**
 ```js
 {
-    "guid": "0ef99605-9d37-4e45-8df7-91d4942cfc75",
-    "type": 1030, // DT_CONTACT_SWITCH
-    "status": "online",
-    "attributes": {
-      "Alarm1": false,
-      "Alarm2": false,
-      "Tamper": false,
-      "Battery": false,
-      "SupervisionReports": false,
-      "RestoreReports": true,
-      "Trouble": null,
-      "AC": null
-    }
+	guid : '0ef99605-9d37-4e45-8df7-91d4942cfc75',
+	type : 1030, // DT_CONTACT_SWITCH
+	status : 'online',
+	attributes : {
+		Alarm1 : false,
+		Alarm2 : false,
+		Tamper : false,
+		Battery : false,
+		SupervisionReports : false,
+		RestoreReports : true,
+		Trouble : null,
+		AC : null
+	}
 }
 ```
