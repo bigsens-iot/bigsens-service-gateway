@@ -14,6 +14,7 @@
 |      | RestoreReports     | bool   | `true` - Reports restore, `false` - Does not report restore |
 |      | Trouble            | bool   | `true` - Trouble/Failure, `false` - OK |
 |      | AC                 | bool   | `true` - AC/Mains fault, `false` - AC/Mains OK |
+|      | ArmModeState       | uint   | Current arm mode state from `ArmMode` event |
 |      | Voltage            | uint   | Represents the L1 voltage in Volts (V) |
 |      | Current            | uint   | Represents the L1 current in Amps (A) |
 |      | ActivePower        | uint   | Represents the L1 active power in Watts (W) |
