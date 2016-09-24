@@ -6,6 +6,7 @@
 |      | State              | bool   | `true` - Device is ON, `false` - Device is OFF |
 |      | Temperature        | int    | Represents the temperature in degrees Celsius |
 |      | Humidity           | uint   | Represents the relative humidity in % |
+|      | BrightnessLevel    | uint | Represents the brightness level in % |
 |      | Alarm1             | bool   | `true` - Opened or alarmed, `false` - Closed or not alarmed         |
 |      | Alarm2             | bool   | `true` - Opened or alarmed, `false` - Closed or not alarmed |
 |      | Tamper             | bool   | `true` - Tampered, `false` - Not tampered |
