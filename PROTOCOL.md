@@ -183,9 +183,9 @@ Emit when a device state is changing.
 | Voltage      | O | uint | Represents the L1 voltage in Volts (V). |
 | Current      | O | uint | Represents the L1 current in Amps (A). |
 | ActivePower  | O | uint | Represents the L1 active power in Watts (W). |
-| On           | M | func | Switch on smart plug.|
-| Off          | M | func | Switch off smart plug. |
-| Toggle       | O | func | Smart plug toggling. |
+| On           | M | method | Switch on smart plug.|
+| Off          | M | method | Switch off smart plug. |
+| Toggle       | O | method | Smart plug toggling. |
 
 **Example**
 ```js
