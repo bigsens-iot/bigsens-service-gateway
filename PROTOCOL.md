@@ -213,7 +213,7 @@ Emit when a device state is changing.
 
 | Attribute    | R | Type | Description                                            |
 |--------------|---|------|--------------------------------------------------------|
-| State        | M | bool  | true - Light is ON, false - Light is OFF |
+| State        | M | bool  | `true` - Light is ON, `false` - Light is OFF |
 | BrightnessLevel | M | uint | Represents the brightness level in % |
 | On           | M | method | Switch on light |
 | Off          | M | method | Switch off light |
