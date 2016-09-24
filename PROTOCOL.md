@@ -28,7 +28,7 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 
 ## Devices
 
-* [DT_SMART_PLUG : 81](#)
+* [DT_SMART_PLUG : 81](#DT_SMART_PLUG)
 * [DT_TEMPERATURE_SENSOR : 770](#DT_TEMPERATURE_SENSOR)
 * [DT_IAS_ANCILLARY_CONTROL_EQUIPMENT : 1025](#)
 * [DT_MOTION_SENSOR : 1029](#DT_IAS_ZONE_DEVICE)
@@ -172,6 +172,39 @@ Emit when a device state is changing.
 
 <a name="DEVICE_TYPES"></a>
 ## Devices description
+
+<a name="DT_SMART_PLUG"></a>
+### Smart plug
+
+| Attribute / Method | R | Type | Description                                            |
+|--------------|---|------|--------------------------------------------------------|
+| State        | M | bool | `true` - Smart plug is ON, `false` - Smart plug is OFF |
+| Voltage      | O | uint | Represents the L1 voltage in Volts (V). |
+| Current      | O | uint | Represents the L1 current in Amps (A). |
+| ActivePower  | O | uint | Represents the L1 active power in Watts (W). |
+| On           | M | func | Switch on smart plug.|
+| Off          | M | func | Switch off smart plug. |
+| Toggle       | O | func | Smart plug toggling. |
+
+**Example**
+```js
+{
+	guid: 'f575ea87-c0dc-476f-8b6e-7fe25b523ed7',
+	type: 81, // DT_SMART_PLUG
+	status: 'online',
+	attributes: {
+		State : true,
+		Voltage : 231.38,
+		Current: 0,
+		ActivePower : 0
+	},
+	methods: {
+		On : {},
+		Off : {},
+		Toggle : {}
+	}
+}
+```
 
 <a name="DT_TEMPERATURE_SENSOR"></a>
 ### Temperature sensor
