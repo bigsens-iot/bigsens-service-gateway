@@ -29,6 +29,7 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 ## Devices
 
 * [DT_SMART_PLUG : 81](#DT_SMART_PLUG)
+* [DT_DIMMABLE_LIGHT : 257](#DT_DIMMABLE_LIGHT)
 * [DT_TEMPERATURE_SENSOR : 770](#DT_TEMPERATURE_SENSOR)
 * [DT_IAS_ANCILLARY_CONTROL_EQUIPMENT : 1025](#DT_IAS_ANCILLARY_CONTROL_EQUIPMENT)
 * [DT_MOTION_SENSOR : 1029](#DT_IAS_ZONE_DEVICE)
@@ -206,6 +207,41 @@ Emit when a device state is changing.
 	}
 }
 ```
+
+<a name="DT_DIMMABLE_LIGHT"></a>
+### Dimmable light
+
+| Attribute    | R | Type | Description                                            |
+|--------------|---|------|--------------------------------------------------------|
+| State        | M | bool  | true - Light is ON, false - Light is OFF |
+| BrightnessLevel | M | uint | Represents the brightness level in % |
+| On           | M | method | Switch on light |
+| Off          | M | method | Switch off light |
+| Toggle       | O | method | Light toggling |
+| Level        | M | method | Set brightness level `brightness : uint` |
+| MoveTo       | O | method | Move to brightness level |
+
+**Example**
+```js
+{
+	guid : 'a567e912-7ac9-471c-83ab-e8e22f992d8a',
+	type : 257, // DT_DIMMABLE_LIGHT
+	status : 'online',
+	attributes : {
+		State : true,
+		BrightnessLevel : 75
+	},
+	methods : {
+		On : {},
+		Off : {},
+		Toggle : {},
+		Level : {
+			brightness : 'uint'
+		}
+	}
+}
+```
+
 <a name="DT_TEMPERATURE_SENSOR"></a>
 ### Temperature sensor
 
