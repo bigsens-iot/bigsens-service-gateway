@@ -56,7 +56,7 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 | Property     | R | Type   | Description                                            |
 |--------------|---|--------|--------------------------------------------------------|
 | guid         | M | string | 128-bit integer number used to identify device         |
-| type         | M | int    | An device type. All types are listed in the protocol.js |
+| type         | M | int    | An device type. All types are listed in the [protocol.js](https://github.com/bigsens-iot/bigsens-service-gateway/blob/master/lib/common/protocol.js#L54) |
 | status       | M | string | Current device status `unknown`, `online`, `offline`|
 | attributes   | O | object | Device attributes depended on the [device type](#DEVICE_TYPES) |
 | methods      | O | object | Device methods e.g. `on/off`, `change level`                 |
