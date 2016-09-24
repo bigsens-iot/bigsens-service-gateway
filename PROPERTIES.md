@@ -15,6 +15,7 @@
 |      | Trouble            | bool   | `true` - Trouble/Failure, `false` - OK |
 |      | AC                 | bool   | `true` - AC/Mains fault, `false` - AC/Mains OK |
 |      | ArmModeState       | uint   | Current arm mode state from `ArmMode` event |
+|      | EmergencyState     | bool   | Current emergency state from `Emergency` event |
 |      | Voltage            | uint   | Represents the L1 voltage in Volts (V) |
 |      | Current            | uint   | Represents the L1 current in Amps (A) |
 |      | ActivePower        | uint   | Represents the L1 active power in Watts (W) |
