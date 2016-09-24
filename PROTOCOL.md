@@ -30,7 +30,7 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 
 * [DT_SMART_PLUG : 81](#DT_SMART_PLUG)
 * [DT_TEMPERATURE_SENSOR : 770](#DT_TEMPERATURE_SENSOR)
-* [DT_IAS_ANCILLARY_CONTROL_EQUIPMENT : 1025](#)
+* [DT_IAS_ANCILLARY_CONTROL_EQUIPMENT : 1025](#DT_IAS_ANCILLARY_CONTROL_EQUIPMENT)
 * [DT_MOTION_SENSOR : 1029](#DT_IAS_ZONE_DEVICE)
 * [DT_CONTACT_SWITCH : 1030](#DT_IAS_ZONE_DEVICE)
 * [DT_FIRE_SENSOR : 1031](#DT_IAS_ZONE_DEVICE)
@@ -58,8 +58,9 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 | guid         | M | string | 128-bit integer number used to identify device         |
 | type         | M | int    | An device type. All types are listed in the protocol.js |
 | status       | M | string | Current device status `unknown`, `online`, `offline`|
-| attributes   | M | object | Device attributes depended on the [device type](#DEVICE_TYPES) |
+| attributes   | O | object | Device attributes depended on the [device type](#DEVICE_TYPES) |
 | methods      | O | object | Device methods e.g. `on/off`, `change level`                 |
+| events       | O | object | Device events e.g. `ArmMode`, `Emergency` |
 | spec         | O | object | Specific device information depends on manufacturer, protocol, etc. |
 
 ## Messages description
@@ -166,7 +167,7 @@ Emit when a device state is changing.
 
     | Property     | R | Type   | Description                                                   |
     |--------------|---|--------|---------------------------------------------------------------|
-    | state        | M | uint8  | `DS_JOIN : 0x00` New device discovered by service<br>`DS_LEAVE : 0x01` Device is removed from service<br>`DS_ONLINE : 0x02` Device is online<br>`DS_OFFLINE : 0x03` Device is offline<br>`DS_CHANGE_VALUE : 0x04`<br> Device property has changed or event occurred<br>`DS_UNKNOWN : 0xff`                                           |
+    | state        | M | uint8  | `DS_JOIN : 0x00` - New device discovered by service<br>`DS_LEAVE : 0x01` - Device is removed from service<br>`DS_ONLINE : 0x02` - Device is online<br>`DS_OFFLINE : 0x03` - Device is offline<br>`DS_CHANGE_VALUE : 0x04` - Device property has changed or event occurred<br>`DS_UNKNOWN : 0xff`                                           |
     | device       | M | object | An [device object](#DEVICE_OBJECT)                                       |
 
 
@@ -189,23 +190,22 @@ Emit when a device state is changing.
 **Example**
 ```js
 {
-	guid: 'f575ea87-c0dc-476f-8b6e-7fe25b523ed7',
-	type: 81, // DT_SMART_PLUG
-	status: 'online',
-	attributes: {
+	guid : 'f575ea87-c0dc-476f-8b6e-7fe25b523ed7',
+	type : 81, // DT_SMART_PLUG
+	status : 'online',
+	attributes : {
 		State : true,
 		Voltage : 231.38,
-		Current: 0,
+		Current : 0,
 		ActivePower : 0
 	},
-	methods: {
+	methods : {
 		On : {},
 		Off : {},
 		Toggle : {}
 	}
 }
 ```
-
 <a name="DT_TEMPERATURE_SENSOR"></a>
 ### Temperature sensor
 
@@ -218,16 +218,50 @@ Emit when a device state is changing.
 **Example**
 ```js
 {
-	guid: '45016b7d-87af-4ded-8965-f28145a05dc9',
-	type: 770, // DT_TEMPERATURE_SENSOR
-	status: 'online',
-	attributes: {
-		Temperature: 27.45,
-		Humidity: 53.99,
+	guid : '45016b7d-87af-4ded-8965-f28145a05dc9',
+	type : 770, // DT_TEMPERATURE_SENSOR
+	status : 'online',
+	attributes : {
+		Temperature : 27.45,
+		Humidity : 53.99,
 		Battery : false
 	}
 }
 ```
+
+<a name="DT_IAS_ANCILLARY_CONTROL_EQUIPMENT"></a>
+### IAS Ancillary Control Equipment
+
+| Attribute / Event | R  | Type   | Description                                            |
+|-------------------|----|--------|--------------------------------------------------------|
+| Battery           | O  | bool   | `true` - Low battery, `false` - Battery OK             |
+| ArmMode           | O  | event | `0x00` - Disarm<br>`0x01` - Arm Day/Home Zones Only<br>`0x02` - Arm Night/Sleep Zones Only<br>`0x03` - Arm All Zones |
+| Emergency         | O  | event | `true` - Emergency situation, `false` - Everything is fine |
+
+**Example**
+```js
+{
+	guid : '936a185c-aa26-4b9c-8981-9e05cb78cd73',
+	type : 1025, // DT_IAS_ANCILLARY_CONTROL_EQUIPMENT
+	status : 'online',
+	attributes : {
+		Battery : false
+	},
+	events : {
+		ArmMode : {
+			'0x00' : 'Disarm',
+			'0x01' : 'Arm Day/Home Zones Only',
+			'0x02' : 'Arm Night/Sleep Zones Only',
+			'0x03' : 'Arm All Zones'
+		},
+		Emergency : {
+			'true' : 'Emergency situation',
+			'false' : 'Everything is fine'
+		}
+	}
+}
+```
+
 <a name="DT_IAS_ZONE_DEVICE"></a>
 ### Intruder Alarm System (IAS) device
 
