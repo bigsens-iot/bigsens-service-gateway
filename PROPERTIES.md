@@ -2,6 +2,7 @@
 
 | UUID | Property           | Type   | Description                                            |
 |------|--------------------|--------|--------------------------------------------------------|
+|      | Status             | string | Current device status `unknown`, `online`, `offline` |
 |      | State              | bool   | `true` - Device is ON, `false` - Device is OFF |
 |      | Temperature        | int    | Represents the temperature in degrees Celsius |
 |      | Humidity           | uint   | Represents the relative humidity in % |
