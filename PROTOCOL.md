@@ -28,6 +28,8 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 
 ## Devices
 
+Full list of devices is stored in the [protocol.js](https://github.com/bigsens-iot/bigsens-service-gateway/blob/master/lib/common/protocol.js#L54)
+
 * [DT_SMART_PLUG : 81](#DT_SMART_PLUG)
 * [DT_DIMMABLE_LIGHT : 257](#DT_DIMMABLE_LIGHT)
 * [DT_TEMPERATURE_SENSOR : 770](#DT_TEMPERATURE_SENSOR)
