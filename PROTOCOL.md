@@ -53,7 +53,7 @@ Full list of devices is stored in the [protocol.js](https://github.com/bigsens-i
 | version      | M | string | Verison in the format `major.minor[.build[.revision]]` |
 | description  | O | string | Service description                                    |
 | keywords     | O | string | Keyword can be used for further search                 |
-| shortName    | O | string | Shor service name                                      |
+| shortName    | O | string | Short service name                                      |
 | workingDir   | O | string | Service working dir                                    |
 
 <a name="DEVICE_OBJECT"></a>
