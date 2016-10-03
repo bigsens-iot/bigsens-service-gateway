@@ -75,9 +75,9 @@ var main = function() {
 			// Add connection to the remote server
 			var remote = new RemoteConnect({
 				parentService : rootService,
-				//serverAddress : '.bigsens.bigsens.com/zigbee-service-v0/ws/' // In production point to the http://api.bigsens.com
-				serverAddress : 'localhost',
-				serverPort : 8080
+				serverAddress : 'cp.security4home.bigsens.com/zigbee-service-v0/ws/' // In production point to the http://api.bigsens.com
+				//serverAddress : 'localhost',
+				//serverPort : 8080
 			});
 
 			remote.on('ready', function(ep) {
@@ -97,7 +97,7 @@ var main = function() {
 						// Zigbee - d59ac233-14b6-4c48-8dfc-4bbc383c6a39
 						
 						var updinfo = {
-							guid : 'd59ac233-14b6-4c48-8dfc-4bbc383c6a39',
+							guid : '17acd140-ca09-4c73-8c30-a962db066b05',
 							forceRestart : true
 						}
 
