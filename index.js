@@ -84,16 +84,28 @@ var main = function() {
 				log.info('Remote connection is ready');
 				// test remote
 
-				/*setInterval(function() {
+				setInterval(function() {
 					if(ep) {
-						ep.getDeviceList().then(function(deviceList) {
+						/*ep.getDeviceList().then(function(deviceList) {
 							console.log('Device list', deviceList);
 							if(deviceList) {
 								// TODO: Store to the database
 							}
+						});*/
+
+						// Root - 17acd140-ca09-4c73-8c30-a962db066b05
+						// Zigbee - d59ac233-14b6-4c48-8dfc-4bbc383c6a39
+						
+						var updinfo = {
+							guid : 'd59ac233-14b6-4c48-8dfc-4bbc383c6a39'
+						}
+
+						ep.syncRequest('SERVICE_UPDATE', updinfo).then(function(rsp) {
+							console.log('Update response =', rsp);
 						});
+
 					}
-				}, 5000);*/
+				}, 20000);
 			});
 
 			remote.start(); // Start the remote server connection
