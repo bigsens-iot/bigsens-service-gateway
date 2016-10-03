@@ -110,7 +110,7 @@ Update service from repository.
 
     | Property    | R | Type   | Description                                                   |
     |-------------|---|--------|---------------------------------------------------------------|
-    | status      | M | uint   | `0` - Service updated<br>`1` - Service up to date, no need update |
+    | status      | M | uint   | `0` - Service updated<br>`1` - Service up to date, no need update<br>`255` - Unknown status |
     | message     | M | string | Status description                                |
 
 <a name="MESSAGE_REGISTER"></a>
