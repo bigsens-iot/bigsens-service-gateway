@@ -15,6 +15,7 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 * [SERVICE_INFO](#)
 * [SERVICE_READY](#)
 * [SERVICE_LIST](#SERVICE_LIST)
+* [SERVICE_UPDATE](#)
 * [MESSAGE_REGISTER](#MESSAGE_REGISTER)
 * [MESSAGE_DISCOVER](#)
 * [MACHINE_INFO](#MACHINE_INFO)
