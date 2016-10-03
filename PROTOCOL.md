@@ -102,7 +102,7 @@ Update service from repository.
     | Property    | R | Type   | Description                                                   |
     |-------------|---|--------|---------------------------------------------------------------|
     | guid            | M | string | 128-bit integer number used to identify service          |
-    | forceRestart    | O | string | Restart the service in any way                         |
+    | forceRestart    | O | bool | Restart the service in any way                         |
 
 **Reply payload:**
 
