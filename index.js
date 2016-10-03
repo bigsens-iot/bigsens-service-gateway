@@ -23,7 +23,6 @@
  *   5. API Gateway - WebSocket, REST
  *
  * Author: Constantin Alexandrov
- *
  */
 
 var _ = require('underscore'),
