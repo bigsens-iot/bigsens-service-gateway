@@ -15,7 +15,7 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 * [SERVICE_INFO](#)
 * [SERVICE_READY](#)
 * [SERVICE_LIST](#SERVICE_LIST)
-* [SERVICE_UPDATE](#)
+* [SERVICE_UPDATE](#SERVICE_UPDATE)
 * [MESSAGE_REGISTER](#MESSAGE_REGISTER)
 * [MESSAGE_DISCOVER](#)
 * [MACHINE_INFO](#MACHINE_INFO)
@@ -90,6 +90,28 @@ Collecting information about active services on the host machine.
 **Reply payload:**
 
 * (_Array_): An array that contains [objects](#SERVICE_OBJECT) with information about services.
+
+<a name="SERVICE_UPDATE"></a>
+### SERVICE_UPDATE
+Update service from repository.
+
+**Request payload:**
+
+* (_Object_): An object that contains information about service update. Properties in this object are given in the following table.
+
+    | Property    | R | Type   | Description                                                   |
+    |-------------|---|--------|---------------------------------------------------------------|
+    | guid            | M | string | 128-bit integer number used to identify service          |
+    | forceRestart    | O | bool | Restart the service in any way                         |
+
+**Reply payload:**
+
+* (_Object_): An object that contains response after service update.
+
+    | Property    | R | Type   | Description                                                   |
+    |-------------|---|--------|---------------------------------------------------------------|
+    | status      | M | uint   | `0` - Service updated<br>`1` - Service up to date, no need update<br>`255` - Unknown status |
+    | message     | M | string | Status description                                |
 
 <a name="MESSAGE_REGISTER"></a>
 ### MESSAGE_REGISTER
