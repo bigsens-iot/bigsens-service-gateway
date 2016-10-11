@@ -196,6 +196,7 @@ Emit when a device state is changing.
     | Property     | R | Type   | Description                                                   |
     |--------------|---|--------|---------------------------------------------------------------|
     | state        | M | uint8  | `DS_JOIN : 0x01` - New device discovered by service<br>`DS_LEAVE : 0x02` - Device is removed from service<br>`DS_ONLINE : 0x03` - Device is online<br>`DS_OFFLINE : 0x04` - Device is offline<br>`DS_CHANGE_VALUE : 0x05` - Device property has changed or event occurred<br>`DS_UNKNOWN : 0xff`                                           |
+    | stateTimestamp | M | int | State timestamp | 
     | device       | M | object | An [device object](#DEVICE_OBJECT)                                       |
 
 
