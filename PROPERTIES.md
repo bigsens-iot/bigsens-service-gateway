@@ -11,7 +11,7 @@
 |      | Humidity           | uint   | Represents the relative humidity in % |
 |      | BrightnessLevel    | uint | Represents the brightness level in % |
 |      | VolumeLevel        | uint | Represents the volume of the media device in % |
-|      | Channel            | uint | Switch to the channel |
+|      | Channel            | method | Switch to the channel |
 |      | Alarm1             | bool   | `true` - Opened or alarmed, `false` - Closed or not alarmed         |
 |      | Alarm2             | bool   | `true` - Opened or alarmed, `false` - Closed or not alarmed |
 |      | Tamper             | bool   | `true` - Tampered, `false` - Not tampered |
