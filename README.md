@@ -21,7 +21,8 @@ Service address format is `remote_address : remote_port`. After connection the `
 | 6 | 127.0.0.1:43309    | goog.voicectrl   | `[ msg1, msg2, ... ]` |
 | 7 | 127.0.0.1:43310    | usb.3gmod        | `[ msg1, msg2, ... ]` |
 | 8 | 127.0.0.1:43311    | ui.base          | `[ msg1, msg2, ... ]` |
-| . | ...             | ...              | ...                   |
+| 9 | 127.0.0.1:43312    | language.processor   | `[ msg1, msg2, ... ]` |
+| . | ...                | ...              | ...                   |
 
  Every service contains mandatory metadata like `UUID` and `Service Name`. Identification goes during connection between service and `Root Service`, it's called the [service announcement](https://github.com/bigsens-iot/bigsens-service-gateway/blob/master/PROTOCOL.md#service_annce) with the message `SERVICE_ANNCE`. The `SERVICE_ANNCE` is a broadcast message and others services will be notified about announcement.
 
