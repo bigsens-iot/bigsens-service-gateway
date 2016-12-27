@@ -28,6 +28,7 @@ All `Events` and `Request-Reply` payloads are in `json` format. The column `R` i
 * [PAIRING_MODE](#)
 * [SPEECH_LANGUAGE](#SPEECH_LANGUAGE)
 * [SPEECH_PHRASE](#SPEECH_PHRASE)
+* [NLP_DOMAIN_LIST](#NLP_DOMAIN_LIST)
 * [NLP_DOMAIN_CREATE](#NLP_DOMAIN_CREATE)
 * [NLP_DOMAIN_UPDATE](#NLP_DOMAIN_UPDATE)
 * [NLP_DOMAIN_REMOVE](#NLP_DOMAIN_REMOVE)
@@ -206,6 +207,31 @@ Emit when a device state is changing.
     | stateTimestamp | M | int | State timestamp | 
     | device       | M | object | An [device object](#DEVICE_OBJECT)                                       |
 
+<a name="NLP_DOMAIN_CREATE"></a>
+### NLP_DOMAIN_CREATE
+Create new semantic domain for entity
+
+**Event payload:**
+
+* (_Object_): An object that contains information about domain. Properties in this object are given in the following table. 
+
+
+    | Property     | R | Type   | Description                                                   |
+    |--------------|---|--------|---------------------------------------------------------------|
+    | entity       | M | string  | Entity name may be as common name for service or device or UUID for inheritated domains from common domains |
+    | type         | M | string | Objectum or action type | 
+    | language     | M | string | Language param                                       |
+    | words        | M | array  | Array of description words for service, device or action |
+
+**Example**
+```js
+{
+    label : 'state.on',
+    type : 'action',
+    language : 'en-US',
+    words : [ '...', '...', ... ]
+}
+```
 
 <a name="DEVICE_TYPES"></a>
 ## Devices description
